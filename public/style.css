@@ -1,0 +1,503 @@
+html, body {
+  width: 100%; 
+  margin: 0;
+  background-color: #EBE5DC;
+}
+html{
+  height: 100%;
+}
+body{
+  position: relative;
+  min-height: 100vh;
+}
+html, body,  button, input, textarea{
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;  
+  font-style: normal;
+}
+
+#page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 8rem;
+} 
+
+h1, h2, h3 { 
+  font-weight: 500;
+  text-align: left; 
+} 
+
+
+header{
+ margin: 0 auto; 
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+.logo{
+  height: 3rem;
+  width: auto;
+}
+
+button{
+  border:0;
+  font-weight: 700;  
+  padding: 0.8rem 1rem;
+  margin:0.3rem;
+  color: #5C6F92;
+  cursor: pointer;
+} 
+
+button:hover{
+  background-color: #5C6F92; 
+  color:white;
+}
+
+header .actions{
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  align-self: center;
+}
+.actions .sort span{
+  font-weight: 700;
+}
+
+#addBook{
+  height: 45px;
+  background-color: #0078E7;
+}
+
+#content{
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem;
+}
+#bookList{  
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 2rem;
+  min-height: 4rem;
+  min-width: 4rem;
+  background-image: url('/load.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/************* Book Cards ************/
+.bookGeneral{
+  display:flex;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.book{
+  width: 200px;
+  height: auto;
+}
+
+.image {
+  height: 320px;
+  width: 200px;
+  background-size: cover;
+  background-position: center center;
+  text-align: right;
+}
+
+.book section{
+  display:flex;
+  flex-direction: column;
+}
+
+.book .image a img{
+  width: 2rem;
+  margin: 1rem;
+  opacity: 0.5;
+}
+.book .image a:hover img{
+  opacity: 1;
+}
+
+.book header{
+  display: flex;
+/*   background: #eee; */
+  padding: 1rem;
+  justify-content: space-between;
+  margin: 0;
+}
+.book main{
+  display: none;
+}
+.bookDetail{ 
+  margin-top: 20px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+.bookHeader{
+  width: auto;
+}
+.book .basicInfo{
+  flex-grow: 1;
+}
+
+.bookDetail .information{
+  margin-left: 80px;
+  width: 60%
+}
+
+.book h2.title{
+  font-size: 1.2rem;
+  margin: 0;
+}
+.bookDetail h2.title{
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  margin: 0;
+}
+.bookGeneral h3{
+  margin-top: 0.4rem;
+  color: #828282;
+}
+
+.book h3{
+  font-size: 0.8rem;
+}
+
+.book:hover{
+  background-color:#c7c0b8;
+  cursor: pointer;
+
+}
+
+.basicInfo:hover{
+  font-color:white;
+}
+
+.bookDetail h3{
+  font-size: 1.2rem;
+}
+
+.bookDetail h5{
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing:  1px; 
+}
+.hide{
+  display: none;
+}
+.bookDetail .content{
+  display: flex;
+  flex-direction: row;
+}
+/********** ISBN FORM STYLING *********/
+fieldset {
+  border: none;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  text-transform: uppercase;
+  color:#828282;
+  letter-spacing:1px;
+  font-weight:500;
+  font-size:0.8rem;
+  margin:0;
+  padding:0;
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
+#formButtons {
+  padding-top: 2rem;
+}
+
+#bookTitle, #authorName{
+   text-transform:none; 
+}
+
+/********** styling for the book's date of completion (calendar) *********/
+.calendar{
+  display: flex;
+  flex-direction: column;
+  width: 4rem;
+  text-align: center;
+  margin: 1rem 0 1rem 1rem;
+}
+.calendar .born{
+  margin: 0;
+  font-style: italic;
+}
+.birthYear{
+  background: #666; 
+  color: #fff;
+  font-weight: 700;   
+}
+.birthMonth{
+  background: #3d2f2f;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.birthDay{
+  background: #fff; 
+  color: #a25757;
+  font-size: 2rem;
+  font-weight: 700;
+}
+/* the "badge" shows whether or not the book is completed. */
+.completion{
+  font-size: .7rem;
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+label[for=completed]{
+  margin-bottom:0;
+  padding-left:0.2rem;
+}
+
+.success{
+  background-color: #999;
+}
+.alert{
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: darkorange; 
+  align-self: end;
+  margin-left: 8px;
+  margin-bottom:4px;
+}
+
+.bookDetail .options{
+  display: flex;
+  flex-direction: row;
+}
+/*====================*/
+
+/********************** Form Layout **********************/
+#isbnForm{
+  display: none;
+  flex-direction: column;
+}
+#bookForm{
+  display: none;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: left;
+  gap: 1rem;
+  margin-bottom: 4rem; 
+  width: 90vw;
+}
+/* drag and drop state */
+#bookForm.ready{
+  background: lightgreen;
+}
+#bookForm h2{
+  width: 100%;
+  text-align: left;
+}
+#bookForm fieldset{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  border: none;
+}
+
+.imgUpload{
+  width: calc(2rem + 200px);
+}
+
+#formButtons{
+  margin-left:auto;
+  margin-top: auto;
+  margin-bottom: 0 !important;
+}
+/*************** field forms for Editing Mode ***************/
+label{
+  margin-bottom: .3rem;
+}
+
+.textForm{
+  text-transform: uppercase;
+  color:#828282;
+  letter-spacing:1px;
+  font-weight:500;
+  font-size:0.8rem;
+}
+
+/**************** field forms for Read-Only Mode ************/
+.options h5{
+  text-transform: uppercase;
+  color:#828282;
+  letter-spacing:1px;
+  font-weight:500;
+  margin-bottom:0.3rem;
+  margin-top:2rem;
+}
+
+.optionsContainer{
+  margin-left: auto;
+}
+
+.buttonsContainer{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3rem;
+}
+
+/********* Layout is a bit different for checkboxes and range sliders. ********/
+#bookForm fieldset.checkboxElement{
+  flex-direction: row;
+  align-items: center;
+  padding-top:1rem;
+}
+#bookForm fieldset.rangeElement{
+  justify-content: center;  
+}
+
+/* file upload */
+#bookForm fieldset.fileElement{
+  justify-content: center;  
+  align-items: center;
+}
+
+#bookForm fieldset.fileElement input{
+  display: none;
+}
+#bookForm fieldset.fileElement label[for="uploader"]{
+  border: 1.6px solid #5C6F92; 
+  font-weight: 500;  
+  background-color: #ebe5dc;  
+  padding: .8rem 1rem;
+  color: #5C6F92;
+  cursor: pointer;
+  text-transform:uppercase;
+  font-size:0.8rem;
+  letter-spacing:1px;
+}
+
+#bookForm fieldset.fileElement label[for="uploader"]:hover{
+color:white;
+background-color:#5C6F92;
+}
+
+#bookForm fieldset.fileElement label[for="picture"] img{
+  width: 1.2rem;
+}
+#bookForm fieldset.fileElement label[for="picture"] span{
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+#bookForm fieldset.fileElement .separator{
+  color: #666;
+  margin: 1rem;
+}
+
+
+#bookForm fieldset.filePreview img{
+   width: 200px;
+}
+
+
+/************************ Styling for form elements *******************/
+#bookForm input {
+  padding: 0.5rem 1rem;
+}
+#bookForm input[type="range"] {
+  padding: 0.5rem 0rem;
+}
+#bookForm input#color {
+  padding: 0;
+}
+#bookForm textarea{
+  padding: 1rem;
+}
+#bookForm select{ 
+  padding: 0.5rem 1rem;
+}
+#bookForm option  {
+  color: black;
+}
+#bookForm option span{ 
+  padding: 0.5rem 1rem;
+}
+/* force the buttons to appear on their own line. */
+#bookForm .lineBreak{
+  width: 100%;
+}
+
+/***********Styling Buttons************/
+.save, .next{
+  background-color:#FF8F51;
+  border:0;
+  color:white;
+}
+.save:hover{
+  background-color:#DF5D15;
+  border:0;
+}
+.cancel{
+  border: solid #5C6F92 1px;
+  background-color:#ebe5dc;
+  color:#5C6F92;
+}
+.cancel:hover{
+  background-color:#3B4B68; 
+  color:white;
+}
+
+.back{
+ background-color:#ebe5dc;
+ color:black;
+}
+
+.back:hover{
+ background-color:#c7c0b8;
+  color:black;
+}
+
+#addBook{
+  color:white;
+  border:0;
+  background-color:#148eff;
+}
+
+#addBook:hover{
+  background-color:#006fd6;
+}
+
+.delete, .edit{
+  border: 1.6px solid #5C6F92; 
+  background-color: #ebe5dc; 
+  
+}
+.delete:hover, .edit:hover{
+  background-color: #5C6F92; 
+  color:white;
+}
+
+/*****************FOOTER*****************/
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color:#e1dedb;
+  position:absolute;
+  bottom:0;
+}
